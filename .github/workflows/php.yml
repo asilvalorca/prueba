@@ -1,0 +1,25 @@
+name: Laravel
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  deploy:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@master
+    - name: Copiar el contenido del repositorio con scp
+      uses: appleboy/scp-action@master
+      env:
+        host: ${{ secrets.HOST }}
+        username: ${{ secrets.USERNAME }}
+        password: ${{ secrets.PASSWORD }}
+        port: ${{ secrets.PORT }}
+      with:
+        source: "*"
+        target: "/home/sistemas/public_html/prueba"
