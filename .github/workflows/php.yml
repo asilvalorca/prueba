@@ -22,4 +22,4 @@ jobs:
         username: ${{ secrets.HOST }}
         password: ${{ secrets.PASSWORD }}
         protocol: ftps
-        server-dir: /home/sistemas/public_html/prueba
+        server-dir: /home/sistemas/public_html/prueba/
