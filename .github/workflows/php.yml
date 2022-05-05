@@ -18,8 +18,8 @@ jobs:
     - name: 📂 Sync files
       uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        server: ${{ secrets.HOST }}
-        username: ${{ secrets.USER }}
+        server: dalservices.cl
+        username: admin
         password: ${{ secrets.PASSWORD }}
-        protocol: ftps
-        server-dir: /home/sistemas/public_html/prueba/
+        protocol: ftp
+        server-dir: /web/dalservices.cl/public_html
