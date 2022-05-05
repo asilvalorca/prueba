@@ -22,4 +22,4 @@ jobs:
         username: admin
         password: ${{ secrets.PASSWORD }}
         protocol: ftp
-        server-dir: /web/dalservices.cl/public_html
+        server-dir: /web/dalservices.cl/public_html/
