@@ -12,14 +12,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@master
-    - name: Copiar el contenido del repositorio con scp
-      uses: appleboy/scp-action@master
-      env:
-        host: ${{ secrets.HOST }}
-        username: ${{ secrets.USERNAME }}
-        password: ${{ secrets.PASSWORD }}
-        port: ${{ secrets.PORT }}
+    - name: 🚚 Get latest code
+      uses: actions/checkout@v2
+
+    - name: 📂 Sync files
+      uses: SamKirkland/FTP-Deploy-Action@4.3.0
       with:
-        source: "*"
-        target: "/home/sistemas/public_html/prueba"
+        server: ${{ secrets.HOST }}
+        username: ${{ secrets.HOST }}
+        password: ${{ secrets.PASSWORD }}
+        protocol: ftps
+        server-dir: /home/sistemas/public_html/prueba
