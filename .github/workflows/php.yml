@@ -15,11 +15,18 @@ jobs:
     - name: 🚚 Get latest code
       uses: actions/checkout@v2
 
-    - name: 📂 Sync files
-      uses: SamKirkland/FTP-Deploy-Action@4.3.0
+    - name: ssh scp ssh pipelines
+      uses: cross-the-world/ssh-scp-ssh-pipelines@latest
+      env:
+        WELCOME: "ssh scp ssh pipelines"
+        LASTSSH: "Doing something after copying"
       with:
-        server: dalservices.cl
-        username: admin
-        password: ${{ secrets.PASSWORD }}
-        protocol: ftp
-        server-dir: /web/dalservices.cl/public_html/
+        host: ${{ secrets.HOST }}
+        user: ${{ secrets.USER }}
+        key: ${{ secrets.KEY }}
+        port: 22
+        connect_timeout: 10s
+        first_ssh: |         
+          mkdir -p /github
+        scp: |
+          './*' => /github
