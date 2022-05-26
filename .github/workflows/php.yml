@@ -26,9 +26,9 @@ jobs:
         key: ${{ secrets.KEY }}
         port: 22
         connect_timeout: 10s
-        first_ssh: |         
-          mkdir -p /home/sistemas/public_html/fabian
-          chmod 755 /home/sistemas/public_html/fabian
-          
+        first_ssh: |
+          mkdir -p /home/sistemas/public_html/som
+          chmod 755 /home/sistemas/public_html/som
+
         scp: |
-          './*' => /home/sistemas/public_html/fabian
+          './*' => /home/sistemas/public_html/som
